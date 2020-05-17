@@ -1,0 +1,18 @@
+<html>
+    <div id="container">Sample Text</div>
+</html>
+
+<script>
+    const container = document.querySelector("#container");
+    container.style.display = "grid";
+    container.style.backgroundColor = "blue";
+
+
+    for (i=0; i<16; i++) {
+        const square = document.createElement("div");
+        square.textContent = "square" + i;
+        container.appendChild(square); 
+    }
+
+    
+</script>
