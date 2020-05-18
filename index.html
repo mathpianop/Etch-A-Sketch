@@ -1,8 +1,17 @@
 <html>
     <body>
          <h1 class="title">Etch-A-Sketch</h1>
-        <button id="btn">Erase Sketchpad</button>
-        <button id="btn1">Change Pixel Density</button>
+         <div>
+            <p>Kindly trace a design on the rudimentary sketchpad below. </p>
+
+            <p>Click "Erase" to reset the pad.</p>  
+   
+            <p>Click "Adjust Size" to change the density of the pixels.</p>
+        </div>
+         
+
+        <button id="btn" class="button">Erase</button>
+        <button id="btn1">Adjust Size</button>
         <div id="container" class="container"></div>
     </body>
    
@@ -10,12 +19,15 @@
 
 <style>
 .title {
-font: Calibri;
 color: black;
-text-shadow: 2px 2px 5px;
+text-shadow: 2px 2px 5px gray;
+}
+
+.button {
+    margin-bottom: 3px;
 }
 .container {
-    background-color: #ebe7d1;
+    background-color: lightgray;
     display: grid;
     height: 960px;
     width: 960px;
@@ -37,7 +49,7 @@ text-shadow: 2px 2px 5px;
     btn.addEventListener('click', function() {
         const squares = document.querySelector('#container').querySelectorAll('div');
         squares.forEach((div) => {
-            div.style.backgroundColor = "#ebe7d1";
+            div.style.backgroundColor = "lightgray";
                 
         });
         sketchSquares();
@@ -46,7 +58,7 @@ text-shadow: 2px 2px 5px;
 
     btn1.addEventListener('click', function() {
         const squares = document.querySelector('#container').querySelectorAll('div'); 
-        numberOfSquares = prompt("Enter number of squares per side");
+        numberOfSquares = prompt("Enter number of pixels per side");
         divideGrid(numberOfSquares);
         createSquares(numberOfSquares);
         sketchSquares();
