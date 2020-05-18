@@ -1,6 +1,6 @@
 <html>
     <header>Etch-A-Sketch</header>
-    <button>Reset</button>
+    <button id="btn">Reset</button>
     <div id="container"></div>
 </html>
 
@@ -13,35 +13,58 @@
     container.style.gridTemplateColumns = "240px 240px 240px 240px";
     container.style.gridTemplateRows = "240px 240px 240px 240px";
 
+    
 
 
-    for (i=1; i<=4; i++) {
+    let numberOfSides = 4;
 
-        for(j=1; j<=4; j++) {
-        const square = document.createElement("div");
-        square.textContent = "square " + i + "," +j;
-        square.classList.add(`square${i},${j}`);
-        square.style.gridColumn = `${i}`;
-        square.style.gridRow = `${j}`
-        container.appendChild(square);
-         }
+    function createSquares(numberOfSides) {  
+        for (i=1; i<=numberOfSides; i++) {
+
+            for(j=1; j<=numberOfSides; j++) {
+                const square = document.createElement("div");
+                square.textContent = "square " + i + "," +j;
+                square.style.gridColumn = `${i}`;
+                square.style.gridRow = `${j}`
+                container.appendChild(square);
+                console.log(square);
+            }
+
+        }
         
     }
 
-    container.addEventListener('hover', function(e) {
-        e.target.style.backgroundColor = "pink";
-    });
-
-    const squares = document.querySelector('#container').querySelectorAll('div');
-    console.log(squares);
+    createSquares(numberOfSides);
+  
+    
+const squares = document.querySelector('#container').querySelectorAll('div');
+   function sketchSquares() {
+    
     squares.forEach((div) => {
        
-    div.addEventListener('mouseover', function(e){
-        e.target.style.backgroundColor = "pink";
-       
-    });
-});
+        div.addEventListener('mouseover', function(e){
+            e.target.style.backgroundColor = "pink";
+        
+        });
+        });
+     }
 
+     sketchSquares();
+
+    
+
+
+const btn = document.querySelector('#btn');
+    btn.addEventListener('click', function() {
+        squares.forEach((div) => {
+            div.style.backgroundColor = "blue";
+            
+        });
+        let numberOfSides =  prompt("Enter number of squares per side");
+        createSquares(numberOfSides);
+        sketchSquares();
+
+    });
 
     
 
