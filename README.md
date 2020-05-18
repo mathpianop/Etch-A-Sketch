@@ -6,6 +6,6 @@ DOM practice project:
 
  5/18 11:00 -- Next, I need to make the button reset, and then have the prompt generalize.
 
-5/18 5:36 -- It works, but it's slow to reset at higher values, and crashes around 400/side. I need to figure out what the limit is. Also, see if there's any way to make this more effecient. Also, gotta fix this color scheme.
+5/18 5:36 -- It works, but it's slow to reset at higher values, and crashes around 400/side. I need to figure out what the limit is. Also, see if there's any way to make this more effecient. Also, gotta fix this color scheme. I also would like to create a larger default number of squares
 
  -End tasks: Make it look a tad nicer. Create two buttons, one for reset, and another for side input.  Run by Ben.

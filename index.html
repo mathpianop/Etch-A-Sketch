@@ -1,42 +1,55 @@
 <html>
     <body>
-         <header>Etch-A-Sketch</header>
-        <button id="btn" >Reset</button>
+         <h1 class="title">Etch-A-Sketch</h1>
+        <button id="btn">Erase Sketchpad</button>
+        <button id="btn1">Change Pixel Density</button>
         <div id="container" class="container"></div>
     </body>
    
 </html>
 
 <style>
+.title {
+font: Calibri;
+color: black;
+text-shadow: 2px 2px 5px;
+}
 .container {
+    background-color: #ebe7d1;
     display: grid;
-    background-color: blue;
     height: 960px;
     width: 960px;
-    grid-template-columns: 240px 240px 240px 240px;
-    grid-template-rows: 240px 240px 240px 240px;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 </style>
 
 <script>
 
     const container = document.querySelector("#container");
-    let numberOfSquares = 4;
+    let numberOfSquares = 20;
     createSquares(numberOfSquares);
     sketchSquares();
 
     const btn = document.querySelector('#btn');
+    const btn1 = document.querySelector('#btn1');
+
     btn.addEventListener('click', function() {
-        const Currentsquares = document.querySelector('#container').querySelectorAll('div');
-        Currentsquares.forEach((div) => {
-            div.style.backgroundColor = "blue";
+        const squares = document.querySelector('#container').querySelectorAll('div');
+        squares.forEach((div) => {
+            div.style.backgroundColor = "#ebe7d1";
                 
         });
-        numberOfSquares =  prompt("Enter number of squares per side");
+        sketchSquares();
+        
+    });
+
+    btn1.addEventListener('click', function() {
+        const squares = document.querySelector('#container').querySelectorAll('div'); 
+        numberOfSquares = prompt("Enter number of squares per side");
         divideGrid(numberOfSquares);
         createSquares(numberOfSquares);
         sketchSquares();
-        
     });
 
 
@@ -74,10 +87,10 @@
 
    
    function sketchSquares() {
-    const Currentsquares = document.querySelector('#container').querySelectorAll('div');
-    Currentsquares.forEach((div) => {
+    const squares = document.querySelector('#container').querySelectorAll('div');
+    squares.forEach((div) => {
         div.addEventListener('mouseover', function(e){
-            e.target.style.backgroundColor = "pink";
+            e.target.style.backgroundColor = "black";
         });
         });
       
