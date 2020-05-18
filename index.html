@@ -1,70 +1,94 @@
 <html>
-    <header>Etch-A-Sketch</header>
-    <button id="btn">Reset</button>
-    <div id="container"></div>
+    <body>
+         <header>Etch-A-Sketch</header>
+        <button id="btn" >Reset</button>
+        <div id="container" class="container"></div>
+    </body>
+   
 </html>
 
+<style>
+.container {
+    display: grid;
+    background-color: blue;
+    height: 960px;
+    width: 960px;
+    grid-template-columns: 240px 240px 240px 240px;
+    grid-template-rows: 240px 240px 240px 240px;
+}
+</style>
+
 <script>
+
     const container = document.querySelector("#container");
-    container.style.display = "grid";
-    container.style.backgroundColor = "blue";
-    container.style.height = "960px";
-    container.style.width = "960px";
-    container.style.gridTemplateColumns = "240px 240px 240px 240px";
-    container.style.gridTemplateRows = "240px 240px 240px 240px";
+    let numberOfSquares = 4;
+    createSquares(numberOfSquares);
+    sketchSquares();
 
-    
+    const btn = document.querySelector('#btn');
+    btn.addEventListener('click', function() {
+        const Currentsquares = document.querySelector('#container').querySelectorAll('div');
+        Currentsquares.forEach((div) => {
+            div.style.backgroundColor = "blue";
+                
+        });
+        numberOfSquares =  prompt("Enter number of squares per side");
+        divideGrid(numberOfSquares);
+        createSquares(numberOfSquares);
+        sketchSquares();
+        
+    });
 
 
-    let numberOfSides = 4;
+    function divideGrid(numberOfSquares) {
+        let rowsAndColumns = "";
+        for (i=0; i<numberOfSquares; i++) {
+            rowsAndColumns += "1fr ";
+            
+        }
 
-    function createSquares(numberOfSides) {  
-        for (i=1; i<=numberOfSides; i++) {
+        container.style.gridTemplateColumns = rowsAndColumns;
+        container.style.gridTemplateRows = rowsAndColumns;
+    }    
 
-            for(j=1; j<=numberOfSides; j++) {
+
+
+    function createSquares(numberOfSquares) {  
+        for (i=1; i<=numberOfSquares; i++) {
+
+            for(j=1; j<=numberOfSquares; j++) {
                 const square = document.createElement("div");
-                square.textContent = "square " + i + "," +j;
                 square.style.gridColumn = `${i}`;
                 square.style.gridRow = `${j}`
                 container.appendChild(square);
-                console.log(square);
+                
             }
 
         }
         
     }
 
-    createSquares(numberOfSides);
+   
   
     
-const squares = document.querySelector('#container').querySelectorAll('div');
+
+   
    function sketchSquares() {
-    
-    squares.forEach((div) => {
-       
+    const Currentsquares = document.querySelector('#container').querySelectorAll('div');
+    Currentsquares.forEach((div) => {
         div.addEventListener('mouseover', function(e){
             e.target.style.backgroundColor = "pink";
-        
         });
         });
+      
      }
 
-     sketchSquares();
+    
 
     
 
 
-const btn = document.querySelector('#btn');
-    btn.addEventListener('click', function() {
-        squares.forEach((div) => {
-            div.style.backgroundColor = "blue";
-            
-        });
-        let numberOfSides =  prompt("Enter number of squares per side");
-        createSquares(numberOfSides);
-        sketchSquares();
 
-    });
 
     
 
