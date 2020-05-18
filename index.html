@@ -1,4 +1,6 @@
 <html>
+    <header>Etch-A-Sketch</header>
+    <button>Reset</button>
     <div id="container"></div>
 </html>
 
@@ -21,9 +23,27 @@
         square.classList.add(`square${i},${j}`);
         square.style.gridColumn = `${i}`;
         square.style.gridRow = `${j}`
-        container.appendChild(square); }
+        container.appendChild(square);
+         }
         
     }
+
+    container.addEventListener('hover', function(e) {
+        e.target.style.backgroundColor = "pink";
+    });
+
+    const squares = document.querySelector('#container').querySelectorAll('div');
+    console.log(squares);
+    squares.forEach((div) => {
+       
+    div.addEventListener('mouseover', function(e){
+        e.target.style.backgroundColor = "pink";
+       
+    });
+});
+
+
+    
 
     
 </script>
