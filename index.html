@@ -6,7 +6,7 @@
 
             <p>Click "Erase" to reset the pad.</p>  
    
-            <p>Click "Adjust Size" to change the density of the pixels.</p>
+            <p>Click "Adjust Size" to change the density of the pixels (up to 300).</p>
         </div>
          
 
@@ -59,9 +59,16 @@ text-shadow: 2px 2px 5px gray;
     btn1.addEventListener('click', function() {
         const squares = document.querySelector('#container').querySelectorAll('div'); 
         numberOfSquares = prompt("Enter number of pixels per side");
-        divideGrid(numberOfSquares);
-        createSquares(numberOfSquares);
-        sketchSquares();
+
+            if (numberOfSquares<=300){
+            divideGrid(numberOfSquares);
+            createSquares(numberOfSquares);
+            sketchSquares();
+            }
+            else {
+                alert("Please enter a number under 300")
+            }
+        
     });
 
 
