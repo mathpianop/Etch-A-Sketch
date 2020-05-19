@@ -6,7 +6,7 @@
 
             <p>Click "Erase" to reset the pad.</p>  
    
-            <p>Click "Adjust Size" to change the density of the pixels (up to 300).</p>
+            <p>Click "Adjust Size" to change the density of the pixels (up to 150).</p>
         </div>
          
 
@@ -31,15 +31,15 @@ text-shadow: 2px 2px 5px gray;
     display: grid;
     height: 960px;
     width: 960px;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 </style>
 
 <script>
 
     const container = document.querySelector("#container");
-    let numberOfSquares = 20;
+    let numberOfSquares = 25;
     createSquares(numberOfSquares);
     sketchSquares();
 
@@ -60,13 +60,13 @@ text-shadow: 2px 2px 5px gray;
         const squares = document.querySelector('#container').querySelectorAll('div'); 
         numberOfSquares = prompt("Enter number of pixels per side");
 
-            if (numberOfSquares<=300){
+            if (numberOfSquares<=150){
             divideGrid(numberOfSquares);
             createSquares(numberOfSquares);
             sketchSquares();
             }
             else {
-                alert("Please enter a number under 300")
+                alert("Please enter a number under 150")
             }
         
     });
