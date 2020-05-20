@@ -60,13 +60,13 @@ text-shadow: 2px 2px 5px gray;
         const squares = document.querySelector('#container').querySelectorAll('div'); 
         numberOfSquares = prompt("Enter number of pixels per side");
 
-            if (0<numberOfSquares<=150){
+            if (numberOfSquares<=150 && numberOfSquares>0){
             divideGrid(numberOfSquares);
             createSquares(numberOfSquares);
             sketchSquares();
             }
             else {
-                alert("Please enter a number under 150")
+                alert("Please enter a number between 1 and 150")
             }
         
     });
